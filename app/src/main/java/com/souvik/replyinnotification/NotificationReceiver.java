@@ -32,15 +32,17 @@ public class NotificationReceiver extends BroadcastReceiver {
             NotificationManager notificationManager = (NotificationManager) context.
                     getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.notify(MainActivity.NOTIFICATION_ID, mBuilder.build());
+
+            Toast.makeText(context, "You Replied", Toast.LENGTH_LONG).show();
         }
 
         //if help button is clicked
-        if (intent.getIntExtra(MainActivity.KEY_INTENT_HELP, -1) == MainActivity.REQUEST_CODE_HELP) {
+        else if (intent.getIntExtra(MainActivity.KEY_INTENT_HELP, -1) == MainActivity.REQUEST_CODE_HELP) {
             Toast.makeText(context, "You Clicked Help", Toast.LENGTH_LONG).show();
         }
 
         //if more button is clicked
-        if (intent.getIntExtra(MainActivity.KEY_INTENT_MORE, -1) == MainActivity.REQUEST_CODE_MORE) {
+        else if(intent.getIntExtra(MainActivity.KEY_INTENT_MORE, -1) == MainActivity.REQUEST_CODE_MORE) {
             Toast.makeText(context, "You Clicked More", Toast.LENGTH_LONG).show();
         }
     }
